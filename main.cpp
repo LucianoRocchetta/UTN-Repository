@@ -36,7 +36,7 @@ void reverseArray(T array[], int size){
 
 //Función para realizar la traspuesta de una matriz
 template <typename T>
-void trasposeOfAMatrix (T matriz[][5], int dfil) {
+void transposeOfAMatrix (T matriz[][5], int dfil) {
     int newMatrix[5][5] = {};
 
     for (int i = 0; i < dfil; i++){
@@ -74,7 +74,7 @@ int main()
     reverseArray(vec10, dim10);
 
     cout << endl << "Matrices: " << endl;
-    trasposeOfAMatrix(matriz, dim5);
+    transposeOfAMatrix(matriz, dim5);
 
     return 0;
 }
