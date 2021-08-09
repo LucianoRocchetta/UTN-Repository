@@ -63,10 +63,17 @@ int main()
                             39, 47, 14, 4, 23,
                             16, 38, 8, 27, 44};
 
+
+    //Impresión 
+    cout << "Arreglos originales: " << endl;
+    mostrarvec(vec5, dim5);
+    mostrarvec(vec10, dim10);
+
+    cout << "Arreglos invertidos: " << endl;
     reverseArray(vec5, dim5);
     reverseArray(vec10, dim10);
-    cout << endl;
 
+    cout << endl << "Matrices: " << endl;
     trasposeOfAMatrix(matriz, dim5);
 
     return 0;
