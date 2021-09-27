@@ -4,7 +4,7 @@ using namespace std;
 
 void mostrarvec(int vec[], int dim)
 {
-	for (int i = 0; i < dim; ++i)
+	for (int i = 0; i < dim; i++)
 		cout << vec[i] << '\t';
     cout << endl;
 }
@@ -24,29 +24,31 @@ void mostrarmat(int m[][5], int dfil)
 //Función para revertir el array
 template <typename T>
 void reverseArray(T array[], int size){
-    
-    T newArray[size] = {};
-    int count = 0;
-    for (int i = size - 1; i >= 0; i--){
-        newArray[count] = array[i];
-        count++;
+    int temp = 0;
+    int start = -1;
+
+    while (start < size) {
+        temp = array[start];
+        array[start] = array[size];
+        array[size] = temp;
+
+        start++;
+        size--;
     }
-    mostrarvec(newArray, size);
 }
 
 //Función para realizar la traspuesta de una matriz
 template <typename T>
 void transposeOfAMatrix (T matriz[][5], int dfil) {
-    int newMatrix[5][5] = {};
+    int temp = 0;
 
     for (int i = 0; i < dfil; i++){
-        for (int j = 0; j < 5; j++){
-            newMatrix[j][i] = matriz[i][j];
+        for (int j = 0; j < i; j++){
+            temp = matriz[i][j];
+            matriz[i][j] = matriz[j][i];
+            matriz[j][i] = temp;
         }
     }
-
-    mostrarmat(matriz, dfil);
-    mostrarmat(newMatrix, dfil);
 }
 
 int main()
@@ -71,10 +73,16 @@ int main()
 
     cout << "Arreglos invertidos: " << endl;
     reverseArray(vec5, dim5);
+    mostrarvec(vec5, dim5);
     reverseArray(vec10, dim10);
-
-    cout << endl << "Matrices: " << endl;
+    mostrarvec(vec10, dim10);
+  
+    
+    cout << endl << "Matriz Original: " << endl;
+    mostrarmat(matriz, dim5);
     transposeOfAMatrix(matriz, dim5);
+    cout << endl << "Matriz Traspuesta: " << endl;
+    mostrarmat(matriz, dim5);
 
     return 0;
 }
